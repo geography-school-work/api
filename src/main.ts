@@ -3,8 +3,7 @@ import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 
 const bootstrap = async () => {
-	const LOCAL = 8080;
-	const PORT = process.env.PORT || LOCAL;
+	const PORT = 80;
 
 	const app = await NestFactory.create(AppModule);
 	app.enableCors({
