@@ -21,9 +21,14 @@ export class AuthService {
 				},
 			})
 		).data;
+
+		if (!user) {
+			throwBadRequestError("incorrect credentials");
+		}
+
 		const isPasswordCorrect = await compare(password, user.password);
 
-		if (!user || !isPasswordCorrect) {
+		if (!isPasswordCorrect) {
 			throwBadRequestError("incorrect credentials");
 		}
 
